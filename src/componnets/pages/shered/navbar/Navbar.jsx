@@ -9,7 +9,7 @@ const Navbar = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
     const navItem = <>
-     <FaHome className="ml-4"/><li className="ml-1"> <Link to={'/'}> Home</Link></li>
+     <FaHome className="ml-4"/><li className="ml-1"> <Link to={'/'}>Home</Link></li>
      <FaPenNib className="ml-4"/><li className="ml-1"><Link to={'/coleges'}>Colleges</Link></li>
      <FaBookOpen className="ml-4"/><li className="ml-1"><Link to={'/admition'}>Admission</Link></li>
      <FaMap className="ml-4"/><li className="ml-1"><Link to={'/mycolge'}>My College</Link></li>

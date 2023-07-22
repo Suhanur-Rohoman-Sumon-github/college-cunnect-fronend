@@ -1,7 +1,9 @@
 
 import { FaRegCheckCircle, FaLongArrowAltRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const SingleColeges = ({ data }) => {
-    const { image, collegeName, admissionDates, events, researchHistory, sports } = data
+    const {_id, image, collegeName, admissionDates, events, researchHistory, sports } = data
+   
     return (
         <div className="card w-full  ">
             <figure><img src={image} className="w-full h-64" alt="Shoes" /></figure>
@@ -28,7 +30,7 @@ const SingleColeges = ({ data }) => {
                 </div>
                 <p className="my-4">{researchHistory}</p>
                 <div className="card-actions ">
-                    <button className="btn btn-primary w-full">dtails<FaLongArrowAltRight /></button>
+                    <Link className="w-full" to={`/mycolege/${_id}`}><button className="btn btn-primary w-full">dtails<FaLongArrowAltRight /></button></Link>
                 </div>
             </div>
         </div>
