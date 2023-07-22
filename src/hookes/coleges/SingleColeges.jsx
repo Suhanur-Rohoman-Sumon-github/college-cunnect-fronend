@@ -1,5 +1,5 @@
 
-import { FaCheck, FaLongArrowAltRight } from "react-icons/fa";
+import { FaRegCheckCircle, FaLongArrowAltRight } from "react-icons/fa";
 const SingleColeges = ({ data }) => {
     const { image, collegeName, admissionDates, events, researchHistory, sports } = data
     return (
@@ -13,7 +13,7 @@ const SingleColeges = ({ data }) => {
                         <h1 className="card-title text-teal-500 text-center my-4">Events :</h1>
                         {
                             events.map(event => <div className="flex items-center" key={event.name}>
-                                <FaCheck  className="text-blue-600"/>   <p className="ml-2">{event.name}</p>
+                                <FaRegCheckCircle  className="text-blue-600"/>   <p className="ml-2">{event.name}</p>
                             </div>)
                         }
                     </div>
@@ -21,7 +21,7 @@ const SingleColeges = ({ data }) => {
                         <h1 className="card-title text-teal-500 my-4">Sports :</h1>
                         {
                             sports.map(sport => <div className="flex items-center" key={sport.name}>
-                                <FaCheck className="text-blue-600"/> <p className="ml-2">{sport.category}</p>
+                                <FaRegCheckCircle className="text-blue-600"/> <p className="ml-2">{sport.category}</p>
                             </div>)
                         }
                     </div>

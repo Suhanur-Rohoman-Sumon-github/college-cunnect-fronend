@@ -10,7 +10,7 @@ const Gelary = () => {
     const imges = useImages()
 
     return (
-        <div className='w-11/12 mx-auto my-12'>
+        <div className='w-11/12 mx-auto mt-12'>
             <Titleses title='Memories Captured' />
             <Swiper
                 effect={'coverflow'}
@@ -29,7 +29,7 @@ const Gelary = () => {
                 className="mySwiper"
             >
                 {
-                    imges.map(imge=><SwiperSlide key={imge._id}><img className='h-[500px] w-[1100px] block' src={imge.image} alt="" /></SwiperSlide>)
+                    imges.map(imge=><SwiperSlide key={imge._id}><img className='h-[600px] w-[1150px] block' src={imge.image} alt="" /></SwiperSlide>)
                 }
             </Swiper>
         </div>
