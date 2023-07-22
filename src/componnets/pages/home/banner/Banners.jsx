@@ -28,7 +28,7 @@ const Banners = () => {
                 <div className="hero min-h-screen" style={{ backgroundImage: `url(${img})` }}>
                     <div className=" "></div>
                     <div className="  ">
-                        <div className="w-[60%]  ml-12 pl-12 py-16  shadow-2xl font-mono">
+                        <div className="md:w-[60%]  ml-12 pl-12 py-16  md:shadow-2xl font-mono">
                             <h1 className="text-4xl font-bold  py-5 text-teal-500"><span className='text-white'>Admission</span> Open for 2023</h1>
                             <p className="my-4 text-lg text-white py-5">
                                 Welcome to college cunnct Admission Portal. Apply now and embark on an exciting educational journey with us.
@@ -45,7 +45,7 @@ const Banners = () => {
                 <div className="hero min-h-screen" style={{ backgroundImage: `url(${img1})` }}>
                     <div className=" "></div>
                     <div className="  ">
-                        <div className="w-[60%] ml-12 pl-12 py-16 shadow-2xl font-mono">
+                        <div className="md:w-[60%] ml-12 pl-12 py-16 md:shadow-2xl font-mono">
                             <h2 className="text-4xl font-bold  py-5 text-teal-500 "><span className='text-white'>Scholarship</span> Opportunities</h2>
                             <p className="my-4 text-lg text-white py-5">
                                 At college cunnct, we believe in recognizing and rewarding academic excellence. We offer a range of
@@ -64,7 +64,7 @@ const Banners = () => {
                 <div className="hero min-h-screen" style={{ backgroundImage: `url(${img2})` }}>
                     <div className=" "></div>
                     <div className="  ">
-                        <div className="w-[60%] ml-12 pl-12 py-16 shadow-2xl font-mono">
+                        <div className="md:w-[60%] ml-12 pl-12 py-16 md:shadow-2xl font-mono">
                             <h2 className="text-4xl font-bold  py-5 text-teal-500 "><span className='text-white'>Explore</span> Our Campus Virtually</h2>
                             <p className="my-4 text-lg text-white py-5">
                                 Cant visit our campus in person? No worries! Take a virtual tour of our state-of-the-art facilities,
