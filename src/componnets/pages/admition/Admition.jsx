@@ -28,11 +28,11 @@ const Admition = () => {
         <h1 className='text-center text-4xl text-teal-500 my-4'>admit your favorite college</h1>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Candidate first name</span>
+            <span className="label-text">Candidate name</span>
           </label>
-          <input className='input input-bordered input-accent w-full' type="text" placeholder="First name" {...register("firstName", { required: true, maxLength: 80 })} />
+          <input className='input input-bordered input-accent w-full' type="text" placeholder="user name" {...register("userName", { required: true, maxLength: 80 })} />
         </div>
-        <br />
+       {errors.userName?.type === 'required' && <p className="text-red-500">name  is required</p>}
 
         <div className="form-control">
           <label className="label">
@@ -46,14 +46,14 @@ const Admition = () => {
             onChange={setPhoneNumber}
             {...register("phoneNumber", { required: true })} />
         </div>
-
+        {errors.phoneNumber?.type === 'required' && <p className="text-red-500">phone numbar  is required</p>}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input className='input input-bordered input-accent w-full' type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} /> <br />
+          <input className='input input-bordered input-accent w-full' type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} /> 
         </div>
-
+        {errors.email?.type === 'required' && <p className="text-red-500">email is required</p>}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Date of Birth</span>
@@ -70,16 +70,37 @@ const Admition = () => {
             maxDate={new Date()}
             dateFormat="dd/MM/yyyy"
             isClearable
+            {...register("dateOfbirth", { required: true})}
           />
         </div>
-
+        {errors.dateOfbirth?.type === 'required' && <p className="text-red-500">Date of Birth  is required</p>}
         <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Title</span>
           </label>
           <select className='input input-bordered input-accent w-full' {...register("title", { required: true })}>
             <option value="University of Science">University of Science</option>
-            {/* Add more options here */}
+            <option value="Arts Academy">Arts Academy</option>
+            <option value="Business Institute">Business Institute</option>
+            <option value="Ivy University">Ivy University</option>
+            <option value="Oakridge College">Oakridge College</option>
+            <option value="Sunflower State University">Sunflower State University</option>
+            <option value="Coastal Community College">Coastal Community College</option>
+            <option value="Central Plains Polytechnic">Central Plains Polytechnic</option>
+            <option value="Maplewood College of Engineering">Maplewood College of Engineering</option>
+            <option value="Ivy League Academy">Ivy League Academy</option>
+            <option value="Emerald College of Business">Emerald College of Business</option>
+            <option value="Silverlake Institute of Technology">Silverlake Institute of Technology</option>
+            <option value="Pacific Coast University">Pacific Coast University</option>
+            <option value="Business Institute">Business Institute</option>
+            <option value="Oceanic Maritime University">Oceanic Maritime University</option>
+            <option value="Crimson University">Crimson University</option>
+            <option value="Lakeside Community College">Lakeside Community College</option>
+            <option value="Royal Conservatory of Music">Royal Conservatory of Music</option>
+            <option value="Mountainview Technical Institute">Mountainview Technical Institute</option>
+            <option value="Evergreen Academy">Evergreen Academy</option>
+            <option value="Sapphire College of Arts">Sapphire College of Arts</option>
+            
           </select>
         </div>
 
