@@ -10,7 +10,7 @@ const Colleges = () => {
         <div className="w-11/12 mx-auto">
            <Titleses title='Which best describes how you want to get started?'/>
             <div>
-            <ColegesMaps datas={colege}></ColegesMaps>
+            {colege ? <ColegesMaps datas={colege}></ColegesMaps> : <span className="loading loading-spinner loading-lg"></span>}
             </div>
         </div>
     );
