@@ -8,12 +8,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const Admition = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const { register, handleSubmit,reset, formState: { errors } } = useForm();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = data => {
     console.log(data)
     reset()
   };
-  const [phoneNumber, setPhoneNumber] = useState();
+
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -32,7 +33,7 @@ const Admition = () => {
           </label>
           <input className='input input-bordered input-accent w-full' type="text" placeholder="user name" {...register("userName", { required: true, maxLength: 80 })} />
         </div>
-       {errors.userName?.type === 'required' && <p className="text-red-500">name  is required</p>}
+        {errors.userName?.type === 'required' && <p className="text-red-500">name  is required</p>}
 
         <div className="form-control">
           <label className="label">
@@ -51,7 +52,7 @@ const Admition = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input className='input input-bordered input-accent w-full' type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} /> 
+          <input className='input input-bordered input-accent w-full' type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
         </div>
         {errors.email?.type === 'required' && <p className="text-red-500">email is required</p>}
         <div className="form-control">
@@ -70,7 +71,7 @@ const Admition = () => {
             maxDate={new Date()}
             dateFormat="dd/MM/yyyy"
             isClearable
-            {...register("dateOfbirth", { required: true})}
+            {...register("dateOfbirth", { required: true })}
           />
         </div>
         {errors.dateOfbirth?.type === 'required' && <p className="text-red-500">Date of Birth  is required</p>}
@@ -78,7 +79,7 @@ const Admition = () => {
           <label className="label">
             <span className="label-text">Title</span>
           </label>
-          <select className='input input-bordered input-accent w-full' {...register("title", { required: true })}>
+          <select className='input input-bordered input-accent w-full' {...register("colege", { required: true })}>
             <option value="University of Science">University of Science</option>
             <option value="Arts Academy">Arts Academy</option>
             <option value="Business Institute">Business Institute</option>
@@ -100,24 +101,24 @@ const Admition = () => {
             <option value="Mountainview Technical Institute">Mountainview Technical Institute</option>
             <option value="Evergreen Academy">Evergreen Academy</option>
             <option value="Sapphire College of Arts">Sapphire College of Arts</option>
-            
+
           </select>
         </div>
-
+        {errors.colege?.type === 'required' && <p className="text-red-500">colege is required</p>}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Adress</span>
+          </label>
+          <input className='input input-bordered input-accent w-full' type="text" placeholder="Subject" {...register("adress", { required: true })} /> <br />
+        </div>
+        {errors.adress?.type === 'required' && <p className="text-red-500">adress is required</p>}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Subject</span>
           </label>
           <input className='input input-bordered input-accent w-full' type="text" placeholder="Subject" {...register("subject", { required: true })} /> <br />
         </div>
-
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Image</span>
-          </label>
-          <input className='input input-bordered input-accent w-full' type="text" placeholder="Image URL" {...register("image", { required: true })} /> <br />
-        </div>
-
+        {errors.subject?.type === 'required' && <p className="text-red-500">colege is required</p>}
         <button className='btn btn-primary w-full my-4'>admit now</button>
       </form>
     </div>
