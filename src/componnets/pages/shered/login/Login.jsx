@@ -1,17 +1,39 @@
 import { FaEye, FaEyeSlash, FaUserGraduate, FaUserPlus } from "react-icons/fa";
 import google from '../../../../assets/google.png'
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import useAutheProvider from "../../../../hookes/useAutheProvider";
+import axios from "axios";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const navigat = useNavigate()
+    const {handleLogin,handleSininWitheGoogle} =useAutheProvider()
     const onSubmit = data => {
         console.log(data)
         const {  email, password } = data
+        handleLogin(email,password)
+        .then(result=>{
+            console.log(result.user)
+            navigat('/')
+        })
         reset()
     };
+    const handleGoogleLogin =()=>{
+        handleSininWitheGoogle()
+        .then(result => {
+            console.log(result.user)
+            navigat('/')
+            axios.post('http://localhost:5000/usersInformations', {  email:result.user.email, })
+                .then((response) => {
+                    console.log(response)
+                })
+            
+        })
+        .catch(err => console.error(err))
+    }
     return (
         <div className="  py-28 lg:py-44 w-11/12 mx-auto ">
             <div className="justify-between  lg:flex ">
@@ -80,7 +102,7 @@ const Login = () => {
                     </div>
                     <div className="divider text-teal-500">OR</div>
                     <div>
-                    <Link className="" > <div className="flex items-center justify-center border border-teal-500 rounded-full mx-4 my-4 py-2">
+                    <Link onClick={handleGoogleLogin} className="" > <div className="flex items-center justify-center border border-teal-500 rounded-full mx-4 my-4 py-2">
                     <img src= {google} className="w-4 h-4"/>   <button className="ml-4">  login withe google</button>
                     </div></Link>
                   

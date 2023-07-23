@@ -10,7 +10,7 @@ import axios from "axios";
 const Sinup = () => {
     const [phoneNumber, setPhoneNumber] = useState();
     const [showPassword, setShowPassword] = useState(false);
-    const { handleSinup, handleUpdateProfile, handleSininWitheGoogle } = useAutheProvider()
+    const { handleSinup, handleUpdateProfile, handleSininWitheGoogle} = useAutheProvider()
     const navigat = useNavigate()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = async data => {
@@ -38,6 +38,11 @@ const Sinup = () => {
             .then(result => {
                 console.log(result.user)
                 navigat('/')
+                axios.post('http://localhost:5000/usersInformations', {  email:result.user.email, })
+                    .then((response) => {
+                        console.log(response)
+                    })
+                
             })
             .catch(err => console.error(err))
     }
