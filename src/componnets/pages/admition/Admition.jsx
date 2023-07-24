@@ -15,7 +15,7 @@ const Admition = () => {
   const onSubmit = data => {
     console.log(data)
     const {adress,colege,colegeImg,dateOfBirth,email,phoneNumbar,subject,userName } = data
-    axios.post('http://https://colege-cunnect-backends-su44248124.vercel.app/admitonData', {adress,colege,colegeImg,dateOfBirth,email,phoneNumbar,subject,userName })
+    axios.post('https://colege-cunnect-backends-su44248124.vercel.app/admitonData', {adress,colege,colegeImg,dateOfBirth,email,phoneNumbar,subject,userName })
       .then((response) => {
         console.log(response)
         Swal.fire('admiton sucsses')

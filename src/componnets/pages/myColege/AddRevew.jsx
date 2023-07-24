@@ -11,7 +11,7 @@ const AddRevew = () => {
     const onSubmit = data => {
         console.log(data)
         const { customerName,reviewText,ratings} = data
-        axios.post('http://https://colege-cunnect-backends-su44248124.vercel.app/addRevew', { customerName,reviewText,ratings:parseFloat(ratings) ,customerImage :user?.photoURL })
+        axios.post('https://colege-cunnect-backends-su44248124.vercel.app/addRevew', { customerName,reviewText,ratings:parseFloat(ratings) ,customerImage :user?.photoURL })
             .then((response) => {
                 console.log(response)
                 Swal.fire('revew added ')

@@ -8,7 +8,7 @@ const ColegeDtails = () => {
   console.log(datails)
   const id = useParams()
   useEffect(() => {
-    fetch(`http://https://colege-cunnect-backends-su44248124.vercel.app/coleges/${id.id}`)
+    fetch(`https://colege-cunnect-backends-su44248124.vercel.app/coleges/${id.id}`)
       .then(res => res.json())
       .then(data => setDetails(data))
   }, [id])
