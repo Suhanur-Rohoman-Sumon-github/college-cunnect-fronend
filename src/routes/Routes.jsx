@@ -8,6 +8,7 @@ import ColegeDtails from "../componnets/pages/colege/ColegeDtails";
 import Login from "../componnets/pages/shered/login/Login";
 import Sinup from "../componnets/pages/shered/sinup/Sinup";
 import PrivateRoute from "./PrivateRoute";
+import AddRevew from "../componnets/pages/myColege/AddRevew";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path:'/sinup',
                 element:<Sinup />
+            },
+            {
+                path:'/addRevew',
+                element:<AddRevew />
             }
 
         ]

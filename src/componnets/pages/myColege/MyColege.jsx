@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import useAdmition from "../../../hookes/useAdmition";
 
 
 const MyColege = () => {
     const admitionData = useAdmition()
-    console.log(admitionData[0])
+    const handleaddRevew =() =>{
+
+    }
     return (
         <div className="overflow-x-auto pt-28 ">
             <table className="table flex mb-10">
@@ -17,6 +20,7 @@ const MyColege = () => {
                         <th>email</th>
                         <th>phone Numbar</th>
                         <th>date of birth</th>
+                        <th>add a revew</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +45,7 @@ const MyColege = () => {
                                 <td>{coleges.email}</td>
                                 <td>{coleges.phoneNumbar}</td>
                                 <td>{coleges.dateOfBirth}</td>
-                               
+                                <td><Link to={'/addRevew'}><button onClick={handleaddRevew} className="btn btn-primary">add a revew</button></Link></td>
                             </tr>
                         ))
                         : (
