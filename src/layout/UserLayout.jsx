@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import Footer from "../componnets/pages/shered/footer/Footer";
 import Navbar from "../componnets/pages/shered/navbar/Navbar";
 import useAutheProvider from "../hookes/useAutheProvider";
+import { FaHospitalUser, FaHouseUser } from "react-icons/fa";
 
 
 const UserLayout = () => {
@@ -22,8 +23,8 @@ const UserLayout = () => {
                     {/* Sidebar content here */}
                     <img className="h-20 w-20 rounded-full mx-auto" src={user?.photoURL} alt="" />
                     <h1 className="text-3xl text-center text-teal-500 font-serif my-4">{user?.displayName}</h1>
-                    <li><Link to={'/profile/home'}>user home</Link></li>
-                    <li><Link to={'/profile/home/information'}>userinformation</Link></li>
+                    <li className="flex items-center my-4"><Link to={'/profile/home'}><FaHouseUser /> user home</Link></li>
+                    <li className="flex items-center"><Link to={'/profile/home/information'}><FaHospitalUser /> User Information</Link></li>
                 </ul>
 
             </div>

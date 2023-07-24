@@ -15,13 +15,13 @@ const Sinup = () => {
     const { handleSinup, handleUpdateProfile, handleSininWitheGoogle} = useAutheProvider();
     const navigat = useNavigate();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const onSubmit = async data => {
+    const onSubmit = data => {
         
         const { adress, email, imgUrl, phoneNumber, userName, password } = data;
         handleSinup(email, password)
 
             .then(result => {
-                handleUpdateProfile(userName, imgUrl, phoneNumber)
+                handleUpdateProfile(userName, imgUrl)
                     .then(result => {
                         console.log(result)
                         navigat('/')
