@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import google from '../../../../assets/google.png'
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
+import 'react-phone-number-input/style.css';
 import { useState } from "react";
 import useAutheProvider from "../../../../hookes/useAutheProvider";
 import axios from "axios";

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAutheProvider from "../../../../hookes/useAutheProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);

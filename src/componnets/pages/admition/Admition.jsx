@@ -1,8 +1,6 @@
-import { useState } from 'react';
+
 import { Controller, useForm } from 'react-hook-form';
 import admitImge from '../../../assets/login.avif';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import useAutheProvider from '../../../hookes/useAutheProvider';
@@ -11,27 +9,20 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const Admition = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [phoneNumber, setPhoneNumber] = useState();
+
   const { user } = useAutheProvider()
-  const { register, handleSubmit, reset,control, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, control, formState: { errors } } = useForm();
   const onSubmit = data => {
     console.log(data)
-    const { } = data
-    axios.post('http://localhost:5000/usersInformations', {})
+    const {adress,colege,colegeImg,dateOfBirth,email,phoneNumbar,subject,userName } = data
+    axios.post('http://localhost:5000/admitonData', {adress,colege,colegeImg,dateOfBirth,email,phoneNumbar,subject,userName })
       .then((response) => {
         console.log(response)
         Swal.fire('admiton sucsses')
       })
     reset()
-    setPhoneNumber('');
-    setSelectedDate('')
   };
-
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
+  
 
   return (
     <div className='py-20 w-9/12 mx-auto md:flex'>
@@ -47,21 +38,13 @@ const Admition = () => {
           <input className='input input-bordered input-accent w-full' value={user.displayName} type="text" placeholder="user name" {...register("userName", { required: true, maxLength: 80 })} />
         </div>
         {errors.userName?.type === 'required' && <p className="text-red-500 flex items-center "><FaExclamation className='mr-2' /> name  is required</p>}
-
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Phone Number</span>
+            <span className="label-text">Candidate phone numbar</span>
           </label>
-          <PhoneInput
-            className="input input-bordered input-accent w-full"
-            defaultCountry="US"
-            placeholder="Phone Number"
-            value={phoneNumber}
-            onChange={setPhoneNumber}
-            {...register('phoneNumber')}
-          />
+          <input className='input input-bordered input-accent w-full'  type="numbar" placeholder="user numbar" {...register("phoneNumbar", { required: true, maxLength: 80 })} />
         </div>
-        {errors.phoneNumber?.type === 'required' && <p className="text-red-500 flex items-center "><FaExclamation className='mr-2' />phone numbar  is required</p>}
+        {errors.phoneNumbar?.type === 'required' && <p className="text-red-500 flex items-center "><FaExclamation className='mr-2' /> numbar  is required</p>}
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
@@ -70,30 +53,30 @@ const Admition = () => {
         </div>
         {errors.email?.type === 'required' && <p className="text-red-500 flex items-center "><FaExclamation className='mr-2' />email is required</p>}
         <div className="form-control">
-        <label className="label">
-          <span className="label-text">Date of Birth</span>
-        </label>
-        <Controller
-          control={control}
-          name="dateOfBirth"
-          render={({ field }) => (
-            <DatePicker
-              className="input input-bordered input-accent w-full"
-              {...field}
-              selected={field.value}
-              onChange={(date) => field.onChange(date)}
-              peekNextMonth
-              showMonthDropdown
-              showYearDropdown
-              dropdownMode="select"
-              placeholderText="Select Date of Birth"
-              maxDate={new Date()}
-              dateFormat="dd/MM/yyyy"
-              isClearable
-            />
-          )}
-        />
-      </div>
+          <label className="label">
+            <span className="label-text">Date of Birth</span>
+          </label>
+          <Controller
+            control={control}
+            name="dateOfBirth"
+            render={({ field }) => (
+              <DatePicker
+                className="input input-bordered input-accent w-full"
+                {...field}
+                selected={field.value}
+                onChange={(date) => field.onChange(date)}
+                peekNextMonth
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                placeholderText="Select Date of Birth"
+                maxDate={new Date()}
+                dateFormat="dd/MM/yyyy"
+                isClearable
+              />
+            )}
+          />
+        </div>
         {errors.dateOfbirth?.type === 'required' && <p className="text-red-500 flex items-center "><FaExclamation className='mr-2' />Date of Birth  is required</p>}
         <div className="form-control w-full">
           <label className="label">

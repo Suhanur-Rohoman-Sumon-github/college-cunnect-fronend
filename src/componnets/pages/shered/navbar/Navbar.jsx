@@ -13,10 +13,10 @@ const Navbar = () => {
         handleLogout()
     }
     const navItem = <>
-        <FaHome className="ml-4" /><li className="ml-1"> <Link to={'/'}>Home</Link></li>
-        <FaPenNib className="ml-4" /><li className="ml-1"><Link to={'/coleges'}>Colleges</Link></li>
-        <FaBookOpen className="ml-4" /><li className="ml-1"><Link to={'/admition'}>Admission</Link></li>
-        <FaMap className="ml-4" /><li className="ml-1"><Link to={'/mycolge'}>My College</Link></li>
+        <li className="ml-1  flex items-center text-teal-500"><FaHome className="ml-4 mr-1" /> <Link to={'/'}>Home</Link></li>
+        <li className="ml-1  flex items-center text-teal-500"><FaPenNib className="ml-4 mr-1" /><Link to={'/coleges'}>Colleges</Link></li>
+        <li className="ml-1  flex items-center text-teal-500"><FaBookOpen className="ml-4 mr-1" /><Link to={'/admition'}>Admission</Link></li>
+        {user && <li className="ml-1 flex items-center text-teal-500"><FaMap className="ml-4 mr-1" /><Link to={'/mycolge'}>My College</Link></li>}
     </>
     return (
         <nav className="bg-white p-4 fixed z-10 w-full ">
@@ -33,9 +33,9 @@ const Navbar = () => {
                     <div className="md:flex hidden ">
                         <div className="form-control mr-7">
                             <div className="input-group">
-                                <input type="text" placeholder="Search…" className="input input-bordered" />
-                                <button className="btn btn-square ml-4">
-                                    <FaSearch />
+                                <input type="text" placeholder="Search…" className="input input-bordered input-accent" />
+                                <button className="btn btn-square ml-4 border border-teal-500">
+                                    <FaSearch className="text-teal-500"/>
                                 </button>
                             </div>
                         </div>
@@ -92,12 +92,12 @@ const Navbar = () => {
                         {user && <div className="dropdown dropdown-end ml-11">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user?.displayName} />
+                                    <img src={user?.photoURL} />
                                 </div>
                             </label>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                <button className=" btn btn-primary my-2 w-full">profile</button>
-                                <button className=" btn btn-primary my-2 w-full">logout</button>
+                            <ul tabIndex={0} className="mt-3 z-[1] p-2  shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                <li className="ml-1"><Link to={'/admition'}>Profile</Link></li>
+                                <li className="ml-1"><Link onClick={handleLogouts} to={'/'}>Logout</Link></li>
                             </ul>
                         </div>
 
