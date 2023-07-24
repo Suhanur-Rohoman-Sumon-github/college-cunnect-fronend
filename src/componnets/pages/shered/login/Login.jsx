@@ -1,4 +1,4 @@
-import { FaEye, FaEyeSlash, FaUserGraduate, FaUserPlus } from "react-icons/fa";
+import { FaExclamation, FaEye, FaEyeSlash, FaUserGraduate, FaUserPlus } from "react-icons/fa";
 import google from '../../../../assets/google.png'
 import { Link,  useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -29,6 +29,7 @@ const Login = () => {
             axios.post('http://localhost:5000/usersInformations', {  email:result.user.email, })
                 .then((response) => {
                     console.log(response)
+                    Swal.fire('user login sucssesfully')
                 })
             
         })
@@ -66,7 +67,7 @@ const Login = () => {
                             </label>
                             <input className='input input-bordered input-accent w-full' type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                         </div>
-                        {errors.email?.type === 'required' && <p className="text-red-500">email is required</p>}
+                        {errors.email?.type === 'required' && <p className="text-red-500"><FaExclamation className=''/>email is required</p>}
                         <div className="form-control">
                                 <label className="label">
                                     <span className="">Password</span>
@@ -88,10 +89,10 @@ const Login = () => {
                                 </div>
 
                             </div>
-                            {errors.password?.type === 'required' && <p className="text-red-500">password is required</p>}
-                            {errors.password?.type === 'minLength' && <p className="text-red-500">password must be atlist 6 charectar</p>}
-                            {errors.password?.type === 'maxLength' && <p className="text-red-500">Password is smaller then 20 charectar</p>}
-                            {errors.password?.type === 'pattern' && <p className="text-red-500">password must be one uppercase one lower case one numbar and one special cherecter</p>}
+                            {errors.password?.type === 'required' && <p className="text-red-500"><FaExclamation className=''/>password is required</p>}
+                            {errors.password?.type === 'minLength' && <p className="text-red-500"><FaExclamation className=''/>password must be atlist 6 charectar</p>}
+                            {errors.password?.type === 'maxLength' && <p className="text-red-500"><FaExclamation className=''/>Password is smaller then 20 charectar</p>}
+                            {errors.password?.type === 'pattern' && <p className="text-red-500"><FaExclamation className=''/>password must be one uppercase one lower case one numbar and one special cherecter</p>}
                         <div className="form-control mt-6">
                             <button className="btn btn-primary w-full"><FaUserPlus /> Login</button>
                         </div>

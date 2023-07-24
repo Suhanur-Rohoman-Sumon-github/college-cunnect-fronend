@@ -7,6 +7,7 @@ import MyColege from "../componnets/pages/myColege/MyColege";
 import ColegeDtails from "../componnets/pages/colege/ColegeDtails";
 import Login from "../componnets/pages/shered/login/Login";
 import Sinup from "../componnets/pages/shered/sinup/Sinup";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/admition',
-                element: <Admition />
+                element: <PrivateRoute ><Admition /></PrivateRoute>
             },
             {
                 path: '/mycolge',
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/mycolege/:id',
-                element: <ColegeDtails />
+                element: <PrivateRoute ><ColegeDtails /></PrivateRoute>
             },
             {
                 path: '/login',

@@ -1,4 +1,4 @@
-import { FaEye, FaEyeSlash, FaUserGraduate, FaUserPlus } from "react-icons/fa";
+import { FaExclamation, FaEye, FaEyeSlash, FaUserGraduate, FaUserPlus } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import google from '../../../../assets/google.png'
 import { useForm } from "react-hook-form";
@@ -6,16 +6,17 @@ import PhoneInput from "react-phone-number-input";
 import { useState } from "react";
 import useAutheProvider from "../../../../hookes/useAutheProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Sinup = () => {
     const [phoneNumber, setPhoneNumber] = useState();
     const [showPassword, setShowPassword] = useState(false);
-    const { handleSinup, handleUpdateProfile, handleSininWitheGoogle} = useAutheProvider()
-    const navigat = useNavigate()
+    const { handleSinup, handleUpdateProfile, handleSininWitheGoogle} = useAutheProvider();
+    const navigat = useNavigate();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = async data => {
-        console.log(data)
-        const { adress, email, imgUrl, phoneNumber, userName, password } = data
+        
+        const { adress, email, imgUrl, phoneNumber, userName, password } = data;
         handleSinup(email, password)
 
             .then(result => {
@@ -28,6 +29,7 @@ const Sinup = () => {
                 axios.post('http://localhost:5000/usersInformations', { adress, email, phoneNumber })
                     .then((response) => {
                         console.log(response)
+                        Swal.fire('user sinup sucssesfully')
                     })
             })
             .catch(err => console.error(err))
@@ -41,11 +43,11 @@ const Sinup = () => {
                 axios.post('http://localhost:5000/usersInformations', {  email:result.user.email, })
                     .then((response) => {
                         console.log(response)
-                    })
+                    });
                 
             })
-            .catch(err => console.error(err))
-    }
+            .catch(err => console.error(err));
+    };
     return (
         <div className="  py-28  w-11/12 mx-auto ">
             <div className="justify-between  lg:flex ">
@@ -78,14 +80,14 @@ const Sinup = () => {
                             </label>
                             <input className='input input-bordered input-accent w-full' type="text" placeholder="user name" {...register("userName", { required: true, maxLength: 80 })} />
                         </div>
-                        {errors.userName?.type === 'required' && <p className="text-red-500">name  is required</p>}
+                        {errors.userName?.type === 'required' && <p className="text-red-500 flex items-center"><FaExclamation className=''/>name  is required</p>}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input className='input input-bordered input-accent w-full' type="text" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
                         </div>
-                        {errors.email?.type === 'required' && <p className="text-red-500">email is required</p>}
+                        {errors.email?.type === 'required' && <p className="text-red-500 flex items-center"><FaExclamation className=''/>email is required</p>}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Phone Number</span>
@@ -98,13 +100,13 @@ const Sinup = () => {
                                 onChange={setPhoneNumber}
                                 {...register("phoneNumber", { required: true })} />
                         </div>
-                        {errors.phoneNumber?.type === 'required' && <p className="text-red-500">phone numbar  is required</p>}
+                        {errors.phoneNumber?.type === 'required' && <p className="text-red-500 flex items-center"><FaExclamation className=''/>phone numbar  is required</p>}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Img url</span>
                             </label>
                             <input className='input input-bordered input-accent w-full' type="text" placeholder="img url" {...register("imgUrl", { required: true })} />
-                            {errors.imgUrl?.type === 'required' && <p className="text-red-500">img url  is required</p>}
+                            {errors.imgUrl?.type === 'required' && <p className="text-red-500 flex items-center"><FaExclamation className=''/>img url  is required</p>}
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -112,7 +114,7 @@ const Sinup = () => {
                             </label>
                             <input className='input input-bordered input-accent w-full' type="text" placeholder="Adress" {...register("adress", { required: true })} />
                         </div>
-                        {errors.adress?.type === 'required' && <p className="text-red-500">adress is required</p>}
+                        {errors.adress?.type === 'required' && <p className="text-red-500 flex items-center"><FaExclamation className=''/>adress is required</p>}
 
                         <div className="form-control">
                             <label className="label">
@@ -135,10 +137,10 @@ const Sinup = () => {
                             </div>
 
                         </div>
-                        {errors.password?.type === 'required' && <p className="text-red-500">password is required</p>}
-                        {errors.password?.type === 'minLength' && <p className="text-red-500">password must be atlist 6 charectar</p>}
-                        {errors.password?.type === 'maxLength' && <p className="text-red-500">Password is smaller then 20 charectar</p>}
-                        {errors.password?.type === 'pattern' && <p className="text-red-500">password must be one uppercase one lower case one numbar and one special cherecter</p>}
+                        {errors.password?.type === 'required' && <p className="text-red-500 flex items-center">password is required</p>}
+                        {errors.password?.type === 'minLength' && <p className="text-red-500 flex items-center">password must be atlist 6 charectar</p>}
+                        {errors.password?.type === 'maxLength' && <p className="text-red-500 flex items-center">Password is smaller then 20 charectar</p>}
+                        {errors.password?.type === 'pattern' && <p className="text-red-500 flex items-center">password must be one uppercase one lower case one numbar and one special cherecter</p>}
                         <div className="form-control mt-6">
                             <button className="btn btn-primary w-full"><FaUserPlus />Sinup</button>
                         </div>
