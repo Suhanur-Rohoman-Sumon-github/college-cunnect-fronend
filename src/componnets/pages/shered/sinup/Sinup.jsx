@@ -27,7 +27,7 @@ const Sinup = () => {
                         navigat('/')
                     })
                 console.log(result.user)
-                axios.post('http://localhost:5000/usersInformations', { adress, email, phoneNumber })
+                axios.post('http://https://colege-cunnect-backends-su44248124.vercel.app/usersInformations', { adress, email, phoneNumber })
                     .then((response) => {
                         console.log(response)
                         Swal.fire('user sinup sucssesfully')
@@ -41,7 +41,7 @@ const Sinup = () => {
             .then(result => {
                 console.log(result.user)
                 navigat('/')
-                axios.post('http://localhost:5000/usersInformations', {  email:result.user.email, })
+                axios.post('http://https://colege-cunnect-backends-su44248124.vercel.app/usersInformations', {  email:result.user.email, })
                     .then((response) => {
                         console.log(response)
                     });

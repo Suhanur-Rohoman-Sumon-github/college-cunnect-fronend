@@ -15,7 +15,7 @@ const Admition = () => {
   const onSubmit = data => {
     console.log(data)
     const {adress,colege,colegeImg,dateOfBirth,email,phoneNumbar,subject,userName } = data
-    axios.post('http://localhost:5000/admitonData', {adress,colege,colegeImg,dateOfBirth,email,phoneNumbar,subject,userName })
+    axios.post('http://https://colege-cunnect-backends-su44248124.vercel.app/admitonData', {adress,colege,colegeImg,dateOfBirth,email,phoneNumbar,subject,userName })
       .then((response) => {
         console.log(response)
         Swal.fire('admiton sucsses')
@@ -26,8 +26,8 @@ const Admition = () => {
 
   return (
     <div className='py-20 w-9/12 mx-auto md:flex'>
-      <div className='md:w-[50%]'>
-        <img className='w-full h-screen' src={admitImge} alt="" />
+      <div className=''>
+        <img className='w-full ' src={admitImge} alt="" />
       </div>
       <form className='p-4 md:w-[50%] ' onSubmit={handleSubmit(onSubmit)}>
         <h1 className='text-center text-4xl text-teal-500 my-4'>admit your favorite college</h1>

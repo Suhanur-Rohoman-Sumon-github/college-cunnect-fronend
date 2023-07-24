@@ -27,7 +27,7 @@ const Login = () => {
         .then(result => {
             console.log(result.user)
             navigat('/')
-            axios.post('http://localhost:5000/usersInformations', {  email:result.user.email, })
+            axios.post('http://https://colege-cunnect-backends-su44248124.vercel.app/usersInformations', {  email:result.user.email, })
                 .then((response) => {
                     console.log(response)
                     Swal.fire('user login sucssesfully')

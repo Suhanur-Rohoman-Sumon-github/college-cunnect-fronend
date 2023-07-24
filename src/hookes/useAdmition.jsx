@@ -9,7 +9,7 @@ const useAdmition = () => {
 
         queryKey: ['admitonData',user?.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/admitonData?email=${user?.email}`);
+            const res = await axios.get(`http://https://colege-cunnect-backends-su44248124.vercel.app/admitonData?email=${user?.email}`);
             return res.data;
 
         }

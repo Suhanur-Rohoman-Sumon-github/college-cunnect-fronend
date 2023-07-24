@@ -9,6 +9,10 @@ import Login from "../componnets/pages/shered/login/Login";
 import Sinup from "../componnets/pages/shered/sinup/Sinup";
 import PrivateRoute from "./PrivateRoute";
 import AddRevew from "../componnets/pages/myColege/AddRevew";
+import UserLayout from "../layout/UserLayout";
+import UserProfile from "../componnets/pages/userProfile/UserProfileHome";
+import UserInformations from "../componnets/pages/userProfile/UserInformations";
+
 
 
 const router = createBrowserRouter([
@@ -38,18 +42,32 @@ const router = createBrowserRouter([
             },
             {
                 path: '/login',
-                element:<Login />
+                element: <Login />
 
             },
             {
-                path:'/sinup',
-                element:<Sinup />
+                path: '/sinup',
+                element: <Sinup />
             },
             {
-                path:'/addRevew',
-                element:<AddRevew />
+                path: '/addRevew',
+                element: <AddRevew />
             }
 
+        ]
+    },
+    {
+        path: '/profile/home',
+        element: <UserLayout />,
+        children: [
+            {
+                path: '/profile/home',
+                element: <UserProfile />
+            },
+            {
+                path: '/profile/home/information',
+                element: <UserInformations />
+            }
         ]
     }
 ])
